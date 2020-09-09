@@ -1,0 +1,2 @@
+ # count the number of lines of java code
+ find . -name '*.java' | xargs cat | wc -l
