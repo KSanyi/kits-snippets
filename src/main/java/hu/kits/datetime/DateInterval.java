@@ -4,7 +4,6 @@ import static java.util.stream.Collectors.toList;
 
 import java.time.Duration;
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -20,7 +19,7 @@ public record DateInterval(LocalDate from, LocalDate to) implements Comparable<D
     public static final DateInterval FULL = new DateInterval(null,  null);
     
     public static DateInterval of(Month month) {
-        LocalDate from = Clock.today().withMonth(month.getValue()).withDayOfMonth(1);
+        LocalDate from = Clock.today().withMonth(month.monthNumber()).withDayOfMonth(1);
         return new DateInterval(from, from.plusMonths(1).minusDays(1));
     }
     
